@@ -6,38 +6,42 @@
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<title>Angular JS</title>
 </head>
+
 <body ng-controller="indexController">
 <header>
-<div class="header">
 	<h2 class="padding">{{titulo}}</h2>
 	<!-- <h2 ng-bind="titulo"></h2> diretivas do angular-->
-</div>
-	<div class="area-tabela">	
-		<table>
-			<thead>
-				<tr>
-					<th >Nome</th>
-					<th>E-mail</th>
-					<th>Nota1</th>
-					<th>Nota2</th>
-					<th>Nota3</th>
-					<th>Média</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="aluno in alunos"> <!--diretivas FOREACH-->
-					<td>{{aluno.nome}}</td>
-					<td>{{aluno.email}}</td>
-					<td>{{aluno.nota1}}</td>
-					<td>{{aluno.nota2}}</td>
-					<td>{{aluno.nota3}}</td>
-					<td>{{media(aluno)}}</td>
-				</tr>
-			</tbody>
-		</table>
-		
-	</div>
 </header>
+
+<main>
+<div class="container">
+	<div class="campo-busca">
+		<input type="text" ng-model="busca" placeholder="Busca"> <!-- atribui valor a variavel busca-->
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>E-mail</th>
+				<th>Nota1</th>
+				<th>Nota2</th>
+				<th>Nota3</th>
+				<th>Média</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="aluno in alunos | filter:busca"> <!--diretivas FOREACH-->
+				<td>{{aluno.nome}}</td>
+				<td>{{aluno.email}}</td>
+				<td>{{aluno.nota1}}</td>
+				<td>{{aluno.nota2}}</td>
+				<td>{{aluno.nota3}}</td>
+				<td>{{media(aluno)}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</main>
 
 
 <script src="lib/angular/angular.min.js"></script>
