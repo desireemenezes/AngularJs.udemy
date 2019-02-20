@@ -2,34 +2,41 @@
 <html ng-app="meuModulo">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<title>Angular JS</title>
 </head>
 <body ng-controller="indexController">
 <header>
-	<h2>{{titulo}}</h2>
-	<h2 ng-bind="titulo"></h2> <!--diretivas do angular-->
-	<table>
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>E-mail</th>
-				<th>Nota1</th>
-				<th>Nota2</th>
-				<th>Nota3</th>
-				<th>Média</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="aluno in alunos"> <!--diretivas FOREACH-->
-				<td>{{aluno.nome}}</td>
-				<td>{{aluno.email}}</td>
-				<td>{{aluno.nota1}}</td>
-				<td>{{aluno.nota2}}</td>
-				<td>{{aluno.nota3}}</td>
-				<td>0</td>
-			</tr>
-		</tbody>
-	</table>
+<div class="header">
+	<h2 class="padding">{{titulo}}</h2>
+	<!-- <h2 ng-bind="titulo"></h2> diretivas do angular-->
+</div>
+	<div class="area-tabela">	
+		<table>
+			<thead>
+				<tr>
+					<th >Nome</th>
+					<th>E-mail</th>
+					<th>Nota1</th>
+					<th>Nota2</th>
+					<th>Nota3</th>
+					<th>Média</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="aluno in alunos"> <!--diretivas FOREACH-->
+					<td>{{aluno.nome}}</td>
+					<td>{{aluno.email}}</td>
+					<td>{{aluno.nota1}}</td>
+					<td>{{aluno.nota2}}</td>
+					<td>{{aluno.nota3}}</td>
+					<td>{{media(aluno)}}</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
 </header>
 
 
@@ -61,6 +68,11 @@
 				nota3: 55
 			},
 		];
+
+		$scope.media = (aluno) => {  
+			let media = (aluno.nota1 + aluno.nota2 + aluno.nota3)/3;
+				return media.toFixed(2);
+		}
 	})
 
 </script>
