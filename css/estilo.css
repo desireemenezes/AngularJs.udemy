@@ -42,4 +42,16 @@ header {
     padding-bottom: 5px;
 }
 
+#campo {
+	border-color: #cccccc;
+	border-width: 2px 2px 2px 2px;
+	border-style: solid;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 4px;
+	padding-right: 20px;
+}
+
+
 
