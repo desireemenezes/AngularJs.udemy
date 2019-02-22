@@ -15,8 +15,9 @@
 </header>
 <main class="container">
 	<div class="row">
+	
 		<input type="text" ng-model="busca.email" placeholder="Busca">
-
+	
 	</div>
 	<div class="row">
 		<table class="striped">
@@ -40,6 +41,8 @@
 					<td>{{aluno.nota3}}</td>
 					<td>{{aluno.media}}</td>
 					<td><button ng-click="editarAluno(aluno)" class="btn blue">Editar</button></td>
+					<td><button ng-click="deletarAluno(aluno)" class="btn red">Deletar</button></td>
+
 				</tr>
 			</tbody>
 		</table>
@@ -177,6 +180,16 @@ $(document).ready(function(){
 			alunoEditar.media = media(Aluno);
 			$('#modal1').modal('close');
 		};
+
+		$scope.deletarAluno = function(Aluno){
+			for(let index in $scope.alunos){
+				let aux = $scope.alunos[index];
+				if (Aluno === aux) {
+					$scope.alunos.splice(index,1);
+				}
+			}
+
+		}
 
 		const limpaForm = () => {
 			$scope.Aluno = {nome: "", email: "",nota1: "",nota2: "",nota3: "", media: ""}
