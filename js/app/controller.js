@@ -1,6 +1,6 @@
 angular.module("meuModulo")
 .controller("indexController",function($scope){
-    $scope.titulo = "Single page aplication with AgularJS.";
+    $scope.titulo = "Home";
     $scope.alunos = [
         {
             nome: "camila",
@@ -88,4 +88,8 @@ angular.module("meuModulo")
     }
 
     init();
+})
+
+.controller("contatoController",function($scope){
+    $scope.titulo = "Contato"
 })
